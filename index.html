@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>모두의 전공네컷 | 진로·전공·교과 상담 플랫폼</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="aurora"></div>
+<div class="top-ticker"><div>🎬 전공 시네마 상담실 · 📚 2022 개정 과목 연계 · 🧭 직업 100+ · 🧩 교과 연결맵 · 📝 생기부 활동 아이디어 · 🖨️ 상담 리포트</div></div>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">🎞️</div>
+    <div>
+      <strong>모두의 전공네컷</strong>
+      <span>Copyright@All Teachers</span>
+    </div>
+  </div>
+  <nav class="top-nav">
+    <a href="#cinema">전공시네마</a>
+    <a href="#explore">진로탐색</a>
+    <a href="#report">상담리포트</a>
+  </nav>
+  <div class="top-actions">
+    <button id="darkBtn" class="ghost">🌙</button>
+    <button id="printBtn" class="primary">리포트 출력</button>
+  </div>
+</header>
+
+<section class="hero" id="cinema">
+  <div class="hero-copy">
+    <div class="kicker">2022 개정 교육과정 × 고교학점제 × 학생부종합 상담</div>
+    <h1>학생의 꿈을<br><span>전공·교과·활동</span>으로 연결하다</h1>
+    <p>진로 질문에서 시작해 추천 직업, 관련 학과, 고교 선택과목, 생기부 연계 탐구 아이디어까지 한 화면에서 상담하는 몰입형 플랫폼입니다.</p>
+    <div class="guide-strip">
+      <b>활용법</b>
+      <span>① 학생 관심 키워드 입력</span>
+      <span>② 전공네컷 카드 선택</span>
+      <span>③ 교과 연결맵 확인</span>
+      <span>④ 활동 아이디어와 리포트 출력</span>
+    </div>
+    <div class="hero-actions">
+      <button id="startCinema" class="big-cta">🎬 전공 시네마 시작</button>
+      <button id="openMap" class="big-ghost">🧩 교과 연결맵</button>
+    </div>
+  </div>
+  <div class="screen">
+    <div class="screen-glow"></div>
+    <div class="poster active"><span>🤖</span><b>AI·디지털</b><em>데이터와 알고리즘으로 문제를 해결</em></div>
+    <div class="poster"><span>🚀</span><b>공학·제조</b><em>설계와 실험으로 미래 기술 제작</em></div>
+    <div class="poster"><span>🩺</span><b>보건·의료</b><em>생명과 건강을 과학적으로 돌봄</em></div>
+    <div class="poster"><span>🎨</span><b>문화·디자인</b><em>상상력을 경험과 콘텐츠로 구현</em></div>
+  </div>
+</section>
+
+<section class="quick">
+  <button data-quick="AI">🤖 AI</button><button data-quick="의료">🩺 의료</button><button data-quick="항공">🚀 항공</button><button data-quick="디자인">🎨 디자인</button><button data-quick="환경">🌿 환경</button><button data-quick="법">⚖️ 법</button><button data-quick="교육">🏫 교육</button><button data-quick="데이터">📊 데이터</button>
+</section>
+
+<main class="workspace" id="explore">
+  <section class="left-pane panel">
+    <div class="panel-head sticky">
+      <div><h2>전공네컷 탐색</h2><p><span id="count">0</span>개 직업·전공 카드</p></div>
+      <button id="resetBtn" class="tiny">초기화</button>
+    </div>
+    <div class="smart-search">
+      <span>🔎</span><input id="q" placeholder="직업, 학과, 과목, 키워드 검색" />
+    </div>
+    <div class="simple-filters">
+      <select id="cat"><option value="">전체 분야</option></select>
+      <select id="apt"><option value="">전체 성향</option><option>논리</option><option>창의</option><option>사람</option><option>자연</option><option>기술</option><option>언어</option></select>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section class="right-pane panel">
+    <div class="panel-head sticky"><div><h2>상담 보드</h2><p>선택한 카드가 여기에 영화 장면처럼 펼쳐집니다.</p></div></div>
+    <div id="detail" class="empty-detail">
+      <div class="empty-icon">🎟️</div>
+      <h3>카드를 선택해 상담을 시작하세요</h3>
+      <p>교과 연결맵, 전공 커리큘럼, 생기부 연계 활동, 입학사정관 시선이 자동으로 정리됩니다.</p>
+    </div>
+    <div class="compare-box" id="compareBox"></div>
+    <div class="memo" id="report">
+      <h3>📝 상담 메모</h3>
+      <div class="memo-grid"><input id="student" placeholder="학생명"><input id="teacher" placeholder="상담교사"><input id="grade" placeholder="학년/반"><input id="date" placeholder="상담일"></div>
+      <textarea id="memo" placeholder="학생의 관심, 강점, 다음 활동 계획을 기록하세요."></textarea>
+      <button id="saveBtn">💾 상담 내용 저장</button>
+    </div>
+  </section>
+</main>
+
+<div id="mapModal" class="floating-modal" aria-hidden="true">
+  <div class="float-card" id="floatCard">
+    <div class="float-head" id="dragHandle"><b>🧩 고교 교과목 연계 지도</b><div><button id="expandMap">⛶</button><button id="closeMap">✕</button></div></div>
+    <div id="mapBody" class="map-body"></div>
+  </div>
+</div>
+
+<div id="cinemaOverlay" class="cinema-overlay" aria-hidden="true"><button id="closeCinema">✕</button><div id="cinemaStage"></div></div>
+<div id="toast" class="toast"></div>
+<div id="printArea"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
