@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모두의 진로 나침반 – 고등학생 직업·학과 탐색 플랫폼</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- 상단 티커 -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    🎯 모두의 진로 나침반 &nbsp;|&nbsp; 2025 개정 교육과정 연계 &nbsp;|&nbsp; 고등학생 맞춤 직업·학과 탐색 &nbsp;|&nbsp; 생기부 연계 팁 제공 &nbsp;|&nbsp; 진로 상담 교사 전용 리포트 출력 &nbsp;|&nbsp; 4가지 직업 비교 분석 &nbsp;|&nbsp; AI·반도체·바이오 미래 직업 포함 &nbsp;|&nbsp; 고교학점제 선택과목 가이드 &nbsp;|&nbsp;
+    🎯 모두의 진로 나침반 &nbsp;|&nbsp; 2025 개정 교육과정 연계 &nbsp;|&nbsp; 고등학생 맞춤 직업·학과 탐색 &nbsp;|&nbsp; 생기부 연계 팁 제공 &nbsp;|&nbsp; 진로 상담 교사 전용 리포트 출력 &nbsp;|&nbsp;
+  </div>
+</div>
+
+<!-- 탑바 -->
+<header class="topbar">
+  <div class="brand">
+    <div class="logo-icon">🧭</div>
+    <div>
+      <div class="brand-name">모두의 진로 나침반</div>
+      <div class="brand-sub">고등학생 직업·학과·교과 탐색 플랫폼</div>
+    </div>
+  </div>
+  <div class="top-actions">
+    <button id="toneBtn" class="btn-ghost">🌙 다크모드</button>
+    <button id="printBtn" class="btn-accent">🖨️ 상담리포트 출력</button>
+  </div>
+</header>
+
+<!-- 히어로 섹션 -->
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">📌 2022 개정 교육과정 × 고교학점제 연계</div>
+    <h1>모두의<br><span class="grad">진로 나침반</span></h1>
+    <p class="lead">고등학생의 꿈을 대학과 잇는 진로 탐색 플랫폼.<br>직업 일러스트·학과 커리큘럼·교과 연계·생기부 팁까지 한눈에.</p>
+    <div class="hero-stats">
+      <div class="stat-pill">🏢 <b id="jobCount">0</b>개 직업</div>
+      <div class="stat-pill">🎓 12개 분야</div>
+      <div class="stat-pill">📚 2022 개정 과목 연계</div>
+      <div class="stat-pill">🖨️ 상담 리포트 출력</div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-cards-preview">
+      <div class="preview-card c1">🤖 AI개발자</div>
+      <div class="preview-card c2">🏥 의사</div>
+      <div class="preview-card c3">🚀 항공우주공학자</div>
+      <div class="preview-card c4">🎨 UX디자이너</div>
+      <div class="preview-card c5">⚖️ 변호사</div>
+      <div class="preview-card c6">🌱 환경컨설턴트</div>
+    </div>
+  </div>
+</section>
+
+<div class="shell">
+
+  <!-- 검색 패널 -->
+  <div class="search-panel" id="searchPanel">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input id="q" type="text" placeholder="직업명, 학과, 과목, 키워드 검색...">
+    </div>
+    <select id="cat"><option>전체 분야</option></select>
+    <select id="aptitude">
+      <option value="">전체 적성</option>
+      <option value="논리">🧠 논리·분석형</option>
+      <option value="창의">🎨 창의·예술형</option>
+      <option value="사람">🤝 사람·돌봄형</option>
+      <option value="자연">🌿 자연·탐구형</option>
+      <option value="기술">⚙️ 기술·제작형</option>
+      <option value="언어">✍️ 언어·소통형</option>
+    </select>
+    <select id="outlook">
+      <option value="">전체 전망</option>
+      <option value="매우높음">🔥 매우 유망</option>
+      <option value="높음">📈 유망</option>
+      <option value="보통">📊 보통</option>
+    </select>
+    <select id="sort">
+      <option value="recommend">추천순</option>
+      <option value="name">가나다순</option>
+      <option value="salary">연봉순</option>
+    </select>
+    <button id="resetBtn" class="btn-ghost">초기화</button>
+  </div>
+
+  <!-- 카테고리 칩 -->
+  <div class="chips" id="chips"></div>
+
+  <!-- 적성 칩 -->
+  <div class="apt-chips">
+    <span class="apt-label">적성 필터:</span>
+    <button class="apt-chip active" data-apt="">전체</button>
+    <button class="apt-chip" data-apt="논리">🧠 논리</button>
+    <button class="apt-chip" data-apt="창의">🎨 창의</button>
+    <button class="apt-chip" data-apt="사람">🤝 사람</button>
+    <button class="apt-chip" data-apt="자연">🌿 자연</button>
+    <button class="apt-chip" data-apt="기술">⚙️ 기술</button>
+    <button class="apt-chip" data-apt="언어">✍️ 언어</button>
+  </div>
+
+  <div class="layout">
+    <!-- 메인 카드 영역 -->
+    <main>
+      <div class="section-head">
+        <div>
+          <h2>직업 탐색</h2>
+          <p class="muted"><span id="resultCount">0</span>개 직업 표시 중</p>
+        </div>
+        <div class="view-toggle">
+          <button id="gridBtn" class="on" title="그리드">⊞</button>
+          <button id="listBtn" title="리스트">☰</button>
+        </div>
+      </div>
+      <div class="cards" id="cards"></div>
+    </main>
+
+    <!-- 사이드바 -->
+    <aside class="side">
+
+      <!-- 비교 패널 -->
+      <div class="panel">
+        <div class="panel-head">
+          <h3>⚖️ 직업 비교</h3>
+          <button id="clearCompare" class="btn-sm">초기화</button>
+        </div>
+        <p class="muted small">최대 4개 직업을 비교할 수 있습니다.</p>
+        <div id="compareBox"><p class="muted">아직 선택한 직업이 없습니다.</p></div>
+      </div>
+
+      <!-- 상담 메모 -->
+      <div class="panel">
+        <h3>📝 진로 상담 메모</h3>
+        <div class="memo-row">
+          <input id="student" type="text" placeholder="학생명">
+          <input id="teacher" type="text" placeholder="상담교사명">
+          <input id="grade" type="text" placeholder="학년/반">
+          <input id="date" type="text" placeholder="상담일자">
+        </div>
+        <div class="memo-tags-row">
+          <label class="small">관심 적성:</label>
+          <div id="memoAptTags" class="mini-tags">
+            <label><input type="checkbox" value="논리"> 논리</label>
+            <label><input type="checkbox" value="창의"> 창의</label>
+            <label><input type="checkbox" value="사람"> 사람</label>
+            <label><input type="checkbox" value="자연"> 자연</label>
+            <label><input type="checkbox" value="기술"> 기술</label>
+            <label><input type="checkbox" value="언어"> 언어</label>
+          </div>
+        </div>
+        <textarea id="memo" placeholder="상담 내용, 학생 특성, 추천 방향 등을 메모하세요..."></textarea>
+        <div class="memo-actions">
+          <button id="saveMemo">💾 저장</button>
+          <button id="loadMemo">📂 불러오기</button>
+          <button id="exportMemo">📤 내보내기</button>
+        </div>
+      </div>
+
+      <!-- 빠른 가이드 -->
+      <div class="panel guide-panel">
+        <h3>💡 상담 활용 가이드</h3>
+        <div class="guide-list">
+          <div class="guide-item">
+            <div class="guide-num">1</div>
+            <div><b>적성 필터</b>로 학생 성향에 맞는 직업군 탐색</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-num">2</div>
+            <div><b>상세보기</b>에서 고교 교과 연계 확인</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-num">3</div>
+            <div><b>비교하기</b>로 관심 직업 4개까지 비교</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-num">4</div>
+            <div><b>리포트 출력</b>으로 학부모 상담 활용</div>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- 상세 모달 -->
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-card">
+    <button id="closeModal" class="close" aria-label="닫기">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- 인쇄 리포트 -->
+<div id="printReport" class="print-report"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
